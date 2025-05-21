@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/npm-link-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -63,7 +64,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "port": 4444
+            "port": 4444,
+            "prebundle": {
+              "exclude": ["my-npm-link-lib"]
+            }
           },
           "configurations": {
             "production": {
